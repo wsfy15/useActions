@@ -1,7 +1,7 @@
 name: Node.js Package
 
 on:
-  push:
+  pull_request:
     branches:
       - master
 
@@ -13,8 +13,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm ci
-      - run: npm test
+      - run: echo build
+      # - run: npm ci
+      # - run: npm test
 
   publish-npm:
     needs: build
